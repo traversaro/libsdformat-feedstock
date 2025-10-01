@@ -56,7 +56,7 @@ outputs:
           - if: not win
             then:
               - test -f ${PREFIX}/include/gz/sdformat${{ major_version }}/sdf/sdf.hh
-              - test -f ${PREFIX}/lib/cmake/sdformat${{ major_version }}/sdformat-config.cmake
+              - test -f ${PREFIX}/lib/cmake/sdformat/sdformat-config.cmake
           - if: unix
             then:
               - test -f ${PREFIX}/lib/libsdformat${SHLIB_EXT}
@@ -66,6 +66,12 @@ outputs:
               - if not exist %LIBRARY_LIB%\\sdformat.lib exit 1
               - if not exist %LIBRARY_BIN%\\sdformat.dll exit 1
               - if not exist %LIBRARY_LIB%\\cmake\\sdformat\\sdformat-config.cmake exit 1
+          - cmake-package-check sdformat --targets sdformat::sdformat
+        requirements:
+          run:
+            - cmake-package-check
+            - ${{ compiler('c') }}
+            - ${{ compiler('cxx') }}
 
   - package:
       name: ${{ python_name }}
