@@ -110,7 +110,7 @@ outputs:
         - gz-math-python
     tests:
       - files:
-          source:
+          recipe:
             - sphere.sdf
             - test_sdformat.py
         requirements:
