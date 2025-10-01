@@ -1,4 +1,4 @@
-import sdformat15 as sdf
+import sdformat as sdf
 
 root = sdf.Root()
 root.load("sphere.sdf")
@@ -18,3 +18,4 @@ for world_index in range(root.world_count()):
                 for visual_index in range(link.collision_count()):
                     visual = link.visual_by_index(visual_index)
                     print("\t\t\tVisual: ", visual.name())
+
