@@ -103,15 +103,15 @@ outputs:
         - pybind11-abi
         - pytest
         - libgz-math
-        - gz-math-python
+        - gz-math-python 9.*
         # Ensure that gz-math-python and libgz-math have consistency version
-        - gz-math
+        - gz-math 9.*
       run:
         - ${{ pin_subpackage(cxx_name, exact=True) }}
         - python
-        - gz-math-python
+        - gz-math-python 9.*
         # Ensure that gz-math-python and libgz-math have consistency version
-        - gz-math
+        - gz-math 9.*
     tests:
       - files:
           recipe:
