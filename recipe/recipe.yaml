@@ -104,10 +104,14 @@ outputs:
         - pytest
         - libgz-math
         - gz-math-python
+        # Ensure that gz-math-python and libgz-math have consistency version
+        - gz-math
       run:
         - ${{ pin_subpackage(cxx_name, exact=True) }}
         - python
         - gz-math-python
+        # Ensure that gz-math-python and libgz-math have consistency version
+        - gz-math
     tests:
       - files:
           recipe:
